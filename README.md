@@ -7,8 +7,6 @@ This project has been written to specifications defined in [REQUIREMENTS.md](REQ
 
 ## Installation
 
-### Environment
-
 The code in this project is written in the Ruby programming language. It is provided in source format, without a compiled executable, so you will need to have a Ruby interpreter available in order to run the code.
 
 Ruby can be installed on most platforms. You can check if you have a ruby interpreter installed, and what version it is by typing the following command in a console window (ignore the $ at the beginning, it indicates a command prompt - yours might be different):
@@ -65,13 +63,13 @@ Each command must be separated from the next by a newline character. This can be
 
 The table is divided into a square grid of 5 sections on each side:
 
-*4* |     |     |     |     |     |
-----|-----|-----|-----|-----|-----|
-*3* |     |     |     |     |     |
-*2* |     |     |     |     |     |
-*1* |     |     |     |     |     |
-*0* |     |     |     |     |     |
-    | *0* | *1* | *2* | *3* | *4* |
+**4** |       |       |       |       |       |
+------|-------|-------|-------|-------|-------|
+**3** |       |       |       |       |       |
+**2** |       |       |       |       |       |
+**1** |       |       |       |       |       |
+**0** |       |       |       |       |       |
+      | **0** | **1** | **2** | **3** | **4** |
 
 If a command results in the Robot being place outside the table or moving off the table then it will be silently ignored.
 
