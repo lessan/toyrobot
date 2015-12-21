@@ -1,15 +1,15 @@
 # Toy Robot Simulator
 
-This application simulates a toy robot moving around a square tabletop. Input is provided through a `commands.txt` file and output printed to the console.
+This application simulates a toy robot moving around a square tabletop. Input is provided through a file and output printed to the console.
 
-This project has been written to specifications defined in the [REQUIREMENTS.md](REQUIREMENTS.md) file which defines the problem space, use cases, input and output format and the deliverables. Please read it first to be familiar with the requirements and understand the scope of the work being done here.
+This project has been written to specifications defined in [REQUIREMENTS.md](REQUIREMENTS.md) which defines the problem space, use cases, input and output format and the deliverables. Please read it first to be familiar with the requirements and understand the scope of the work being done here.
 
 
-# Installation
+## Installation
 
-## Environment
+### Environment
 
-The code is written in the Ruby programming language. It is provided in source format, without a compiled executable, so you will need to have a Ruby interpreter available to be able to run the code.
+The code in this project is written in the Ruby programming language. It is provided in source format, without a compiled executable, so you will need to have a Ruby interpreter available in order to run the code.
 
 Ruby can be installed on most platforms. You can check if you have a ruby interpreter installed, and what version it is by typing the following command in a console window (ignore the $ at the beginning, it indicates a command prompt - yours might be different):
 
@@ -21,7 +21,7 @@ If you need to install Ruby see below for instructions.
 
 This code has been tested using Ruby version 2.2.2 running on Ubuntu 14.04.
 
-## Instructions
+### Instructions
 
 1. Install Ruby
   - See [instructions](https://www.ruby-lang.org/en/documentation/installation/) on ruby-lang.org
@@ -30,19 +30,20 @@ This code has been tested using Ruby version 2.2.2 running on Ubuntu 14.04.
   - It may be as simple as typing `gem install bundler`
 3. Clone this repository on your development machine:
   - Cloning means making a copy of a remote repository on your local machine so you can work with it. You don't make any changes to the original repository by cloning, unless you edit some files, _commit_ your changes, and _push_ those changes.
-  - Cd to the directory you want to place the files under, e.g. to place them in a folder under your home directory: `cd ~`
-  - Invoke `git clone git@github.com:lessan/toyrobot.git`
+  - Cd to the directory you want to place the files under. To place them in a folder under your home directory: `cd ~`
+  - Type `git clone git@github.com:lessan/toyrobot.git`
   - See [instructions](https://help.github.com/articles/cloning-a-repository/) on github.com for more details about cloning a repository.
 4. Install required gems:
   - Cd to the toyrobot directory: `cd ~/toyrobot`
-  - Invoke `bundle install`
+  - Type `bundle install`
+  - This will download and install all the gems required for this project.
 
 
-# Usage
+## Usage
 
-## Input
+### Input
 
-The simulator reads input from a [file](data/commands.txt) `commands.txt` in the `data` directory. If you would like to change the sequence of commands, edit that file. Extra whitespace before or after the commands will be ignored. Sample commands are:
+The simulator reads input from a [file](data/commands.txt) called `commands.txt` in the `data` directory. If you would like to change the sequence of commands, edit that file. Extra whitespace before or after the commands will be ignored. A sample of the contents of this file would be:
 
 ```
 PLACE 0,0,NORTH
@@ -50,7 +51,7 @@ LEFT
 REPORT
 ```
 
-## Command Reference
+### Command Reference
 
 Commands and arguments are not case sensitive - any combination of upper and lower case characters will work. For example, the following are equivalent:
 ```
@@ -63,12 +64,14 @@ mOvE
 Each command must be separated from the next by a newline character. This can be either `\n`, `\r`, or `\r\n`. Simply pressing ENTER between commands in any editor or browser window will add an acceptable newline.
 
 The table is divided into a square grid of 5 sections on each side:
-4 |   |   |   |   |   |
-3 |   |   |   |   |   |
-2 |   |   |   |   |   |
-1 |   |   |   |   |   |
-0 |   |   |   |   |   |
-  | 0 | 1 | 2 | 3 | 4 |
+
+*4* |     |     |     |     |     |
+----|-----|-----|-----|-----|-----|
+*3* |     |     |     |     |     |
+*2* |     |     |     |     |     |
+*1* |     |     |     |     |     |
+*0* |     |     |     |     |     |
+    | *0* | *1* | *2* | *3* | *4* |
 
 If a command results in the Robot being place outside the table or moving off the table then it will be silently ignored.
 
@@ -88,7 +91,7 @@ Any commands before the first PLACE command will be silently ignored.
 
 The PLACE command can be issued more than once; on subsequent times it will re-position the Robot. All other commands can also be issued multiple times.
 
-## Running the Simulator
+### Running the Simulator
 
 To run the simulator, invoke the default rake task:
 
@@ -97,7 +100,7 @@ $ cd ~/toyrobot
 $ bundle exec rake
 ```
 
-This will load the input file, process the commands and print the result of any REPORT commands out to the console. You should see the following output:
+This will load the input file, process the commands and print the result of any REPORT commands out to the console. You should see the following output (the details may vary depending on the contents of your command.txt file):
 
 ```
 Robot Simulator
@@ -107,16 +110,20 @@ Reading input from commands.txt:
     LEFT
     REPORT
 Processing input through the Robot Simulator...
-    Output: 0,0,WEST
+    Output: 0, 0, WEST
 Simulation ended.
 ```
 
 
-# Testing
+## Testing
 
-Most of the code is covered by Unit and Integration tests which are located in the `spec` directory and are written using RSpec.
+Most of the code is covered by Unit and Integration tests which are located in the `spec` directory and are written using [RSpec](http://rspec.info/).
 
-Read through these tests to understand how the code works. The convention is to first cover the happy path: the intended functionality of the code under normal circumstances, and then to address the various sad paths: edge and error cases. It is impossible or impractical to cover every possible scenario, but the most likely and those with the most impact are covered. Certain sections of the code are covered in more detail than others, again due to their complexity and the risk involved in something going wrong there. For example, the Rake task which loads the input from a file and invokes the simulator is not covered by any tests, whereas the Robot class is fully covered.
+Read through these tests to understand how the code works.
+The convention is to first cover the happy path: the intended functionality of the code under normal circumstances, and then to address the various sad paths: edge and error cases.
+It is impossible or impractical to cover every possible scenario, but the most likely and those with the most impact are covered.
+Certain sections of the code are covered in more detail than others due to their complexity and the risk involved in something going wrong there.
+For example, the Rake task which loads the input from a file and invokes the simulator is not covered by any tests, whereas the Robot class is fully covered.
 
 To run the entire test suite:
 
@@ -140,13 +147,13 @@ $ bundle exec rspec ./spec/robot_simulator_spec.rb:10
 ```
 
 
-# Design
+## Design
 
 
-# License
+## License
 
 
-# Contributing
+## Contributing
 
 
 
