@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'robot_simulator'
+require 'simulator'
 
-describe RobotSimulator do
+describe Simulator do
   it 'processes commands' do
     described_class.process('commands')
   end
