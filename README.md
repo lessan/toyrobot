@@ -175,7 +175,7 @@ There are certain things you want to include whenever you start a new project, s
 In the case of this project, here's what I added:
 - the [rake](https://github.com/ruby/rake) gem: I decided to use rake to run the simulator rather than invoke it directly from the command line
 - the [rspec](https://github.com/rspec/rspec) gem: I prefer to use RSpec for testing due to its readable syntax (called a Domain Specific Language or DSL). There are other popular options such as [minitest](https://github.com/seattlerb/minitest) or [Test::Unit](http://ruby-doc.org/stdlib-1.8.7/libdoc/test/unit/rdoc/Test/Unit.html)
-- the [rubocop](https://github.com/bbatsov/rubocop) gem: a popular code analyzer which helps enforce many of the guidelines from the community driven (Ruby Style Guide)[https://github.com/bbatsov/ruby-style-guide]. Even though seasoned developers would automatically adopt these styles, I find it useful to include it so anyone working on the project can check their code before committing it
+- the [rubocop](https://github.com/bbatsov/rubocop) gem: a popular code analyzer which helps enforce many of the guidelines from the community driven [Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide). Even though seasoned developers would automatically adopt these styles, I find it useful to include it so anyone working on the project can check their code before committing it
 - the [simplecov](https://github.com/colszowka/simplecov) gem: provides code coverage. We should all be writing code which is covered well by tests. This just provides that extra check that we didn't miss something obvious
 
 To go with those gems, I exclude the `coverage` folder in [.gitignore](.gitignore) and start simplecov in [spec/spec_helper.rb](spec/spec_helper.rb):
