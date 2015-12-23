@@ -187,7 +187,20 @@ SimpleCov.start
 That should be enough to get started writing specs and implementing them.
 
 #### Implementing the [Rakefile](Rakefile)
-I decided to include the functionality for reading a file here instead of in the Simulator class because the requirements make it clear that this aspect is not an important concern: you can opt to use STDIN instead. So in case we later switch to using that, I write the Simulator so it accepts one line of command at a time.
+I decided to include the functionality for reading a file here instead of in the Simulator class because the requirements make it clear that this aspect is not an important concern: you can opt to use STDIN instead. So in case we later switch to using that, I wrote the Simulator so it accepts one line of command at a time.
+
+#### Implementing the [CommandParser](lib/command_parser.rb)
+After creating a skeleton Simulator class, I realized the first bit of functionality I need is to parse incoming commands. Some popular options for this kind of thing include:
+- a command-line option parsing library called `optparse` which is in the ruby standard library: http://ruby-doc.org/stdlib-2.2.4/libdoc/optparse/rdoc/OptionParser.html
+- using Shellwords to for the advanced `split` functionality: http://ruby-doc.org/stdlib-2.2.4/libdoc/shellwords/rdoc/Shellwords.html
+
+For the purposes of this project, I realized my needs didn't involve the command line, were very specific and unlikely to change. More commands may be added but the format would probably stay similar. If it does significantly change, then there is no telling now if having used something like the OptionParser above would have helped anyway. So I decided to implement my own CommandParser.
+
+The basic steps to achieve this functionality are:
+- split the command string into two sections separated by a space: Command and Arguments. This is simply `string.split(' ', 2)` where 2 limits the number of sections to be split by
+- split up the Arguments by comma, then clean them up in case there are extra spaces:`string.split(',').map!(&:strip)` . See http://stackoverflow.com/a/20735560/59661 for a discussion on various methods of doing this
+- check that the Command is valid (compare against a whitelist) so we don't get hacked with someone executing an arbitrary method by including it in commands.txt
+- apply the Command to an object, in our case an instance of the Robot class
 
 
 ## License
