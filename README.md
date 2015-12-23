@@ -186,6 +186,9 @@ SimpleCov.start
 
 That should be enough to get started writing specs and implementing them.
 
+#### Implementing the [Rakefile](Rakefile)
+I decided to include the functionality for reading a file here instead of in the Simulator class because the requirements make it clear that this aspect is not an important concern: you can opt to use STDIN instead. So in case we later switch to using that, I write the Simulator so it accepts one line of command at a time.
+
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for your rights and limitations.
