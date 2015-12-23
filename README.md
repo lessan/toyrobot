@@ -147,6 +147,24 @@ $ bundle exec rspec ./spec/robot_simulator_spec.rb:10
 
 ## Design
 
+In this section I discuss the design of this application and the decisions that were made along the way.
+It should prove helpful for reviewing the code, for modifying it or extending it in future and may also prove helpful for others working on a similar application.
+
+#### Steps to getting started
+1. Read [REQUIREMENTS.md](REQUIREMENTS.md)
+2. Make notes of central concepts: nouns, verbs and the data that is exchanged ![Central Concepts](docs/images/nouns_verbs_data.jpg)
+3. Draw a table with a numbered 5x5 grid and compass directions ![Table](docs/images/grid.jpg)
+4. Sketch several sequence diagrams to better understand the messages that get passed between objects ![Sample of Sequence Diagram](docs/images/place_sequence.jpg)
+5. Consider how I would implement key methods, to see if there would be any repercussions on the design ![Turning](docs/images/direction.jpg) ![Moving](docs/images/moving.jpg)
+6. Create a skeleton project and upload it to this repository
+7. Start implementing classes using an outside-in approach: Rakefile, then Simulator, then CommandParser, etc.
+
+#### Steps for implementing each object
+1. The implementation starts with me having a an idea of the responsibility for this object (what it does)
+2. I then think about how I would implement this, possibly writing a spike in a throw-away test
+3. Once I have an idea of how I would implement it and its public interface (methods and return values), I fill out the spec file with tests, starting with the happy path (when things go the way they should) and adding pending tests for sad paths as I think of them, later implementing the pending tests
+4. Once I have a few tests, I start implementing the methods to pass the tests, then Red-Green-Refactor
+
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for your rights and limitations.
