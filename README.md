@@ -152,10 +152,14 @@ It should prove helpful for reviewing the code, for modifying it or extending it
 
 #### Steps to getting started
 1. Read [REQUIREMENTS.md](REQUIREMENTS.md)
-2. Make notes of central concepts: nouns, verbs and the data that is exchanged ![Central Concepts](docs/images/nouns_verbs_data.jpg)
-3. Draw a table with a numbered 5x5 grid and compass directions ![Table](docs/images/grid.jpg)
-4. Sketch several sequence diagrams to better understand the messages that get passed between objects ![Sample of Sequence Diagram](docs/images/place_sequence.jpg)
-5. Consider how I would implement key methods, to see if there would be any repercussions on the design ![Turning](docs/images/direction.jpg) ![Moving](docs/images/moving.jpg)
+2. Make notes of central concepts: nouns, verbs and the data that is exchanged:<br />
+   ![Central Concepts](docs/images/nouns_verbs_data.jpg)
+3. Draw a table with a numbered 5x5 grid and compass directions:<br />
+   ![Table](docs/images/grid.jpg)
+4. Sketch several sequence diagrams to better understand the messages that get passed between objects. Here's a sample:<br />
+   ![Sample of Sequence Diagram](docs/images/place_sequence.jpg)
+5. Consider how I would implement key methods, to see if there would be any repercussions on the design:<br />
+   ![Turning](docs/images/direction.jpg) ![Moving](docs/images/moving.jpg)
 6. Create a skeleton project and upload it to this repository
 7. Start implementing classes using an outside-in approach: Rakefile, then Simulator, then CommandParser, etc.
 
