@@ -1,16 +1,20 @@
 class CommandParser
   attr_reader :command_string
 
-  VALID_COMMANDS = %w(place move left right report) # must be lowercase
+  # These correspond to files such as lib/commands/place.rb
+  VALID_COMMANDS = %w(Place Move Left Right Report)
+
+  $LOAD_PATH.unshift(File.dirname(__FILE__), 'lib/commands')
+  VALID_COMMANDS.each { |command| require command.downcase }
 
   def initialize(command_string)
     @command_string = command_string.to_s
   end
 
-  def perform_on(object)
+  def parse
     command, arguments = prepare_command_and_arguments
     return unless command_is_valid?(command)
-    object.send command, arguments
+    Commands.const_get(command.to_sym).new(*arguments)
   end
 
   private
@@ -21,7 +25,7 @@ class CommandParser
   end
 
   def prepare_command(raw_command)
-    raw_command.to_s.downcase
+    raw_command.to_s.capitalize
   end
 
   def prepare_arguments(raw_arguments)
