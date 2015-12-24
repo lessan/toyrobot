@@ -98,17 +98,18 @@ $ cd ~/toyrobot
 $ bundle exec rake
 ```
 
-This will load the input file, process the commands and print the result of any REPORT commands out to the console. You should see the following output (the details may vary depending on the contents of your command.txt file):
+This will load the input file, process the commands and print the result of any REPORT commands out to the console. You should see the following output (depending on the contents of your command.txt file):
 
 ```
 Robot Simulator
 ---------------
-Reading input from commands.txt:
-    PLACE 0,0,NORTH
-    LEFT
-    REPORT
-Processing input through the Robot Simulator...
-    Output: 0, 0, WEST
+Input is being read line by line from data/commands.txt:
+
+PLACE 0,0,NORTH
+MOVE
+REPORT
+Output: 0,1,NORTH
+
 Simulation ended.
 ```
 
