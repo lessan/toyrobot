@@ -13,41 +13,28 @@ describe Table do
   context 'responding to a check whether given coordinates are within dimensions' do
     let(:x) { 1 }
     let(:y) { 1 }
+    subject { described_class.within_dimensions?(x, y) }
 
-    it 'succeeds' do
-      expect(described_class::within_dimensions?(x, y)).to be true
-    end
+    it { is_expected.to be true }
 
     context 'with an x coordinate outside the dimensions' do
       let(:x) { -1 }
-
-      it 'fails' do
-        expect(described_class::within_dimensions?(x, y)).to be false
-      end
+      it { is_expected.to be false }
     end
 
     context 'with a y coordinate outside the dimensions' do
       let(:y) { 999 }
-
-      it 'fails' do
-        expect(described_class::within_dimensions?(x, y)).to be false
-      end
+      it { is_expected.to be false }
     end
 
     context 'with a nil coordinate' do
       let(:x) { nil }
-
-      it 'fails' do
-        expect(described_class::within_dimensions?(x, y)).to be false
-      end
+      it { is_expected.to be false }
     end
 
     context 'with a string coordinate' do
       let(:x) { '1' }
-
-      it 'fails' do
-        expect(described_class::within_dimensions?(x, y)).to be false
-      end
+      it { is_expected.to be false }
     end
   end
 end
