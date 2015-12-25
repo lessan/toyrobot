@@ -112,24 +112,24 @@ describe Compass do
   context 'rotating clockwise' do
     it 'adds 90 to the angle' do
       new_angle = described_class.rotate_clockwise_from(11)
-      expect(new_angle).to eq (11 + 90)
+      expect(new_angle).to eq(11 + 90)
     end
 
     it 'wraps around 360 degrees' do
       new_angle = described_class.rotate_clockwise_from(270)
-      expect(new_angle).to eq (0)
+      expect(new_angle).to eq(0)
     end
   end
 
   context 'rotating counter-clockwise' do
     it 'subtracts 90 from the angle' do
       new_angle = described_class.rotate_counter_clockwise_from(111)
-      expect(new_angle).to eq (111 - 90)
+      expect(new_angle).to eq(111 - 90)
     end
 
     it 'wraps around 360 degrees' do
       new_angle = described_class.rotate_counter_clockwise_from(0)
-      expect(new_angle).to eq (270)
+      expect(new_angle).to eq(270)
     end
   end
 end
