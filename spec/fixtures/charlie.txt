@@ -1,0 +1,56 @@
+Here's the story of Charlie, a little robot
+
+It's early morning and the sun is just rising.
+Charlie is at his home on the south side,
+looking out over the horizon at the sunrise:
+PLACE 2,0,EAST
+
+He decides to go for a little walk:
+MOVE
+MOVE
+MOVE
+...oops, almost fell off the world there.
+Good thing Charlie's Navigator chip stopped him.
+
+Suddenly, a bird flies past...
+RIGHT
+MOVE
+... again, the Navigator to the rescue.
+
+Well, let's get back home and get ready for the day.
+RIGHT
+MOVE
+MOVE
+
+All set. Off to town to get a bite to eat.
+RIGHT
+MOVE
+MOVE
+LEFT
+MOVE
+RIGHT
+
+Charlie sits down at a Cafe and orders some food.
+It's so delicious!
+Let's take a photo and share it on Robook.
+But wait, what's our location?
+REPORT
+
+Ahh, that's better. Others know this is a great cafe.
+Now, let's go to the park to play with Marv.
+MOVE
+MOVE
+MOVE
+LEFT
+MOVE
+
+Mum calls. "Where are you Charlie?"
+REPORT
+
+"Please come home at once! You need to take care of Lola today."
+Good thing Charlie's Navigator supports multiple placing.
+PLACE 2,0,EAST
+REPORT
+
+"I'm home mum!"
+Charlie will have to play with Marv another day.
