@@ -71,4 +71,36 @@ describe Navigator do
       expect(y).to eq(34 - 5)
     end
   end
+
+  context 'moving an object' do
+    let(:object) { double }
+    let(:navigator) { described_class.new(object) }
+
+    it "sets the object's x and y attributes" do
+      expect(object).to receive(:x=).with('new value for x')
+      expect(object).to receive(:y=).with('new value for y')
+      navigator.move_to('new value for x', 'new value for y')
+    end
+  end
+
+  context 'turning an object' do
+    let(:object) { double(angle: 'angle') }
+    let(:navigator) { described_class.new(object) }
+
+    context 'right' do
+      it 'rotates an object clockwise, getting the new angle from Compass' do
+        expect(Compass).to receive(:rotate_clockwise_from).with('angle').and_return('return value')
+        expect(object).to receive(:angle=).with('return value')
+        navigator.turn_right
+      end
+    end
+
+    context 'left' do
+      it 'rotates an object counter-clockwise, getting the new angle from Compass' do
+        expect(Compass).to receive(:rotate_counter_clockwise_from).with('angle').and_return('return value')
+        expect(object).to receive(:angle=).with('return value')
+        navigator.turn_left
+      end
+    end
+  end
 end

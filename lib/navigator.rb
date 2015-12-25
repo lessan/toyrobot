@@ -34,4 +34,19 @@ class Navigator
     x_offset, y_offset = DirectionMatrix.send(direction)
     [object.x + x_offset, object.y + y_offset]
   end
+
+  # these methods mutate the object:
+
+  def move_to(x, y)
+    object.x = x
+    object.y = y
+  end
+
+  def turn_right
+    object.angle = Compass.rotate_clockwise_from(object.angle)
+  end
+
+  def turn_left
+    object.angle = Compass.rotate_counter_clockwise_from(object.angle)
+  end
 end
