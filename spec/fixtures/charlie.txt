@@ -36,7 +36,7 @@ Let's take a photo and share it on Robook.
 But wait, what's our location?
 REPORT
 
-Ahh, that's better. Others know this is a great cafe.
+Ahh, that's better. Others will know this is a great cafe.
 Now, let's go to the park to play with Marv.
 MOVE
 MOVE
