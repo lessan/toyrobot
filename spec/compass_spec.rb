@@ -2,11 +2,6 @@ require 'spec_helper'
 require 'compass'
 
 describe Compass do
-  it 'provides a constant for degrees clockwise and counterclockwise' do
-    expect(described_class::DEGREES_CLOCKWISE).to eq(90)
-    expect(described_class::DEGREES_COUNTERCLOCKWISE).to eq(-90)
-  end
-
   context 'validating a direction' do
     subject { described_class.validate_direction(direction) }
 
@@ -111,6 +106,25 @@ describe Compass do
       it 'raises an ArgumentError' do
         expect { subject }.to raise_error(ArgumentError)
       end
+    end
+  end
+
+  context 'rotating clockwise' do
+    it 'adds 90 to the angle' do
+      new_angle = described_class.rotate_clockwise_from(11)
+      expect(new_angle).to eq (11 + 90)
+    end
+  end
+
+  context 'rotating counter-clockwise' do
+    it 'subtracts 90 from the angle' do
+      new_angle = described_class.rotate_counter_clockwise_from(111)
+      expect(new_angle).to eq (111 - 90)
+    end
+
+    it 'wraps around 360 degrees' do
+      new_angle = described_class.rotate_counter_clockwise_from(0)
+      expect(new_angle).to eq (270)
     end
   end
 end

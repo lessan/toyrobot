@@ -1,7 +1,4 @@
 module Compass
-  DEGREES_CLOCKWISE = 90
-  DEGREES_COUNTERCLOCKWISE = -90
-
   def self.validate_direction(direction)
     %w(north south east west).include? direction.to_s.downcase
   end
@@ -20,5 +17,15 @@ module Compass
     return 'south' if angle == 180
     return 'west'  if angle == 270
     fail ArgumentError, "Invalid angle: #{angle.inspect}"
+  end
+
+  def self.rotate_clockwise_from(angle)
+    angle + 90
+  end
+
+  def self.rotate_counter_clockwise_from(angle)
+    new_angle = angle - 90
+    new_angle += 360 if new_angle < 0
+    new_angle
   end
 end
