@@ -2,6 +2,11 @@ require 'spec_helper'
 require 'compass'
 
 describe Compass do
+  it 'provides a constant for degrees clockwise and counterclockwise' do
+    expect(described_class::DEGREES_CLOCKWISE).to eq(90)
+    expect(described_class::DEGREES_COUNTERCLOCKWISE).to eq(-90)
+  end
+
   context 'validating a direction' do
     subject { described_class.validate_direction(direction) }
 

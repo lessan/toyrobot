@@ -1,4 +1,7 @@
 module Compass
+  DEGREES_CLOCKWISE = 90
+  DEGREES_COUNTERCLOCKWISE = -90
+
   def self.validate_direction(direction)
     %w(north south east west).include? direction.to_s.downcase
   end
