@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'file_processor'
 
 describe FileProcessor do
-  let(:filename) { 'spec/fixtures/commands.txt' }
+  let(:filename) { 'spec/fixtures/lines.txt' }
   let(:file_processor) { described_class.new(filename) }
   let(:processor) { double }
 
