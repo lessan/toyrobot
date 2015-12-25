@@ -49,4 +49,8 @@ class Navigator
   def turn_left
     object.angle = Compass.rotate_counter_clockwise_from(object.angle)
   end
+
+  def turn_to(direction)
+    object.angle = Compass.angle_from(direction)
+  end
 end

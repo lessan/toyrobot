@@ -102,5 +102,13 @@ describe Navigator do
         navigator.turn_left
       end
     end
+
+    context 'in a specific direction' do
+      it 'sets a new angle based on the direction, obtained from Compass' do
+        expect(Compass).to receive(:angle_from).with('new direction').and_return('return value')
+        expect(object).to receive(:angle=).with('return value')
+        navigator.turn_to('new direction')
+      end
+    end
   end
 end
