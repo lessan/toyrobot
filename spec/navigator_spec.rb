@@ -38,4 +38,37 @@ describe Navigator do
       expect(navigator.placed?).to be(false)
     end
   end
+
+  context "determining an object's position" do
+    let(:navigator) { described_class.new(double(x: 12, y: 34)) }
+    it 'returns an array of x and y' do
+      expect(navigator.position).to eq([12, 34])
+    end
+  end
+
+  context "determining an object's direction" do
+    let(:navigator) { described_class.new(double(angle: 'angle')) }
+    it 'returns an array of x and y' do
+      expect(Compass).to receive(:direction_from).with('angle').and_return('return value')
+      expect(navigator.direction).to eq('return value')
+    end
+  end
+
+  context 'proposing a move' do
+    let(:navigator) { described_class.new(double(x: 12, y: 34)) }
+
+    it 'gets an x and y offset from the DirectionMatrix by sending it the current direction' do
+      allow(navigator).to receive(:direction).and_return('direction')
+      expect(DirectionMatrix).to receive(:send).with('direction').and_return([0, 0])
+      navigator.propose_move_forward_in_current_direction
+    end
+
+    it "adds the x and y offsets to the object's x and y and returns them" do
+      allow(navigator).to receive(:direction)
+      allow(DirectionMatrix).to receive(:send).and_return([11, -5])
+      x, y = navigator.propose_move_forward_in_current_direction
+      expect(x).to eq(12 + 11)
+      expect(y).to eq(34 - 5)
+    end
+  end
 end

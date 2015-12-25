@@ -21,4 +21,17 @@ class Navigator
     return false unless TypeChecker.integer?(object.angle)
     true
   end
+
+  def position
+    [object.x, object.y]
+  end
+
+  def direction
+    Compass.direction_from(object.angle)
+  end
+
+  def propose_move_forward_in_current_direction
+    x_offset, y_offset = DirectionMatrix.send(direction)
+    [object.x + x_offset, object.y + y_offset]
+  end
 end
