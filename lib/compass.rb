@@ -20,7 +20,9 @@ module Compass
   end
 
   def self.rotate_clockwise_from(angle)
-    angle + 90
+    new_angle = angle + 90
+    new_angle -= 360 if new_angle >= 360
+    new_angle
   end
 
   def self.rotate_counter_clockwise_from(angle)

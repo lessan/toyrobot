@@ -114,6 +114,11 @@ describe Compass do
       new_angle = described_class.rotate_clockwise_from(11)
       expect(new_angle).to eq (11 + 90)
     end
+
+    it 'wraps around 360 degrees' do
+      new_angle = described_class.rotate_clockwise_from(270)
+      expect(new_angle).to eq (0)
+    end
   end
 
   context 'rotating counter-clockwise' do
