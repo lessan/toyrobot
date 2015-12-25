@@ -71,35 +71,27 @@ describe CommandParser do
     end
   end
 
-  context 'with an invalid command' do
-    let(:command_string) { 'INVALID' }
+  context 'invalid commands' do
+    subject { command_parser.parse }
 
-    it 'no methods are invoked' do
-      command_parser.parse
+    context 'with an invalid command_string' do
+      let(:command_string) { 'INVALID' }
+      it { is_expected.to be_a(Commands::Invalid) }
     end
-  end
 
-  context 'with command consisting of just spaces' do
-    let(:command_string) { '  ' }
-
-    it 'no methods are invoked' do
-      command_parser.parse
+    context 'with command_string consisting of just spaces' do
+      let(:command_string) { '  ' }
+      it { is_expected.to be_a(Commands::Invalid) }
     end
-  end
 
-  context 'with command consisting of an empty string' do
-    let(:command_string) { '' }
-
-    it 'no methods are invoked' do
-      command_parser.parse
+    context 'with an empty command_string' do
+      let(:command_string) { '' }
+      it { is_expected.to be_a(Commands::Invalid) }
     end
-  end
 
-  context 'with a nil command' do
-    let(:command_string) { nil }
-
-    it 'no methods are invoked' do
-      command_parser.parse
+    context 'with a nil command_string' do
+      let(:command_string) { nil }
+      it { is_expected.to be_a(Commands::Invalid) }
     end
   end
 end
