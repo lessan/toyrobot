@@ -2,10 +2,16 @@ Here's the story of Charlie, a little robot
 
 It's early morning and the sun is just rising.
 Charlie is at his home on the south side,
-looking out over the horizon at the sunrise:
-PLACE 2,0,EAST
+looking out over the horizon at the sunrise.
 
 He decides to go for a little walk:
+MOVE
+REPORT
+
+Oh, wait, he's not switched on yet.
+PLACE 2,0,EAST
+
+That's better. Now, on with our walk.
 MOVE
 MOVE
 MOVE
