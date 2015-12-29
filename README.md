@@ -71,14 +71,14 @@ The table is divided into a square grid of 5 sections on each side:
 **0** |       |       |       |       |       |
       | **0** | **1** | **2** | **3** | **4** |
 
-If a command results in the Robot being place outside the table or moving off the table then it will be silently ignored.
+If a command results in the Robot being placed outside the table or moving off the table then it will be silently ignored.
 
 Valid commands are:
 
 Command | Arguments | Description
 ------- | --------- | -----------
 PLACE   | X, Y, DIR | Place the Robot on the table at the initial position indicated by X and Y, and facing in the direction DIR. Valid positions are 0 to 5 for both X and Y. Valid directions are NORTH, SOUTH, EAST and WEST. Arguments must be separated from the PLACE command by one or more spaces, and separated from each other by a comma (spaces around them will be ignored).
-MOVE    |           | Move the Robot one cell forward in the direction it was facing.
+MOVE    |           | Move the Robot one cell forward in the direction it is facing.
 LEFT    |           | Turn the Robot 90 degrees counter-clockwise. For example if it was facing NORTH it would now be facing WEST.
 RIGHT   |           | Turn the Robot 90 degrees clockwise. For example if it was facing NORTH it would now be facing EAST.
 REPORT  |           | A message describing the current status of the Robot (its position and direction) will be printed to standard output (i.e. the console window). For example: `Output: 1, 1, NORTH`.
