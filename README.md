@@ -191,13 +191,17 @@ That should be enough to get started writing specs and implementing them.
 I decided to include the functionality for reading a file here instead of in the Simulator class because the requirements make it clear that this aspect is not an important concern: you can opt to use STDIN instead. So in case we later switch to using that, I wrote the Simulator so it accepts one line of command at a time.
 
 #### Implementing the [CommandParser](lib/command_parser.rb)
-After creating a skeleton Simulator class, I realized the first bit of functionality I need is to parse incoming commands. Some popular options for this kind of thing include:
-- a command-line option parsing library called `optparse` which is in the ruby standard library: http://ruby-doc.org/stdlib-2.2.4/libdoc/optparse/rdoc/OptionParser.html
-- using Shellwords to for the advanced `split` functionality: http://ruby-doc.org/stdlib-2.2.4/libdoc/shellwords/rdoc/Shellwords.html
+After creating a skeleton Simulator class, I realized the first bit of functionality I need is to parse the commands. There are a number of approaches one could take for this:
+1. Implement the commands as ruby code using a [Domain Specific Language (DSL)](http://martinfowler.com/books/dsl.html)
+2. Parse the commands coming from the command line or from a file as a parameter, using a command-line parser (e.g. [optparse](http://ruby-doc.org/stdlib-2.2.4/libdoc/optparse/rdoc/OptionParser.html) which comes with ruby)
+3. Build a custom parser
 
-For the purposes of this project, I realized my needs didn't involve the command line, were very specific and unlikely to change. More commands may be added but the format would probably stay similar. If it does significantly change, then there is no telling now if having used something like the OptionParser above would have helped anyway. So I decided to implement my own CommandParser.
+I didn't choose the first option because the current syntax is not complicated enough to warrant a DSL. If, for example, the code included conditional statements or loops, then it would definately benefit from being parsed as ruby syntax (using an Abstract Syntax Tree for example) and mapped to code using DSL techniques.
+The second option is also not well suited for this as the focus of the project is not on interacting with the command line as a utility but rather in processing a non-trivial number of commands in sequence.
 
-The basic steps to achieve this functionality are:
+In implementing a custom parser, I also decided not to use a built-in function that could have been helpful ([Shellwords](http://ruby-doc.org/stdlib-2.2.4/libdoc/shellwords/rdoc/Shellwords.html)) for the split functionality, as it didn't quite match the syntax we are working with.
+
+Here is an overview of the steps our CommandParser takes:
 - split the command string into two sections separated by a space: Command and Arguments. This is simply `string.split(' ', 2)` where 2 limits the number of sections to be split by
 - split up the Arguments by comma, then clean them up in case there are extra spaces:`string.split(',').map!(&:strip)` . See http://stackoverflow.com/a/20735560/59661 for a discussion on various methods of doing this
 - check that the Command is valid (compare against a whitelist) so we don't get hacked with someone executing an arbitrary method by including it in commands.txt
