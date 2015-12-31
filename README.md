@@ -164,7 +164,7 @@ It should prove helpful for reviewing the code, for modifying it or extending it
 6. Create a skeleton project and upload it to a repository such as this one on github
 7. Start implementing classes using an outside-in approach: Rakefile, then Simulator, then CommandParser, etc.
 
-#### Steps for implementing each object
+#### Steps for implementing each class
 1. The implementation starts with me having a an idea of the responsibility for this object (what it does)
 2. I then think about how I would implement this, possibly writing a spike in a throw-away test
 3. Once I have an idea of how I would implement it and its public interface (methods and return values), I fill out the spec file with tests, starting with the happy path (when things go the way they should) and adding pending tests for sad paths as I think of them, later implementing the pending tests
@@ -210,13 +210,13 @@ Here is an overview of the steps our CommandParser takes:
 #### Implementing the [Navigator](lib/navigator.rb)
 Another major decision was to put the methods dealing with moves outside the Robot class. I decided to do this because the functionality for placing, moving and turning have to do with the concept of navigation, rather than with a Robot. If we had a toy Car as well, for example, we could create a Car class which also uses the same Navigation system.
 
-I then separated specific functionality into the [DirectionMatrix](lib/direction_matrix.rb) and [Compass](lib/compass.rb) objects because they were not part of the main responsibility of the Navigator.
+I then separated specific functionality into the [DirectionMatrix](lib/direction_matrix.rb) and [Compass](lib/compass.rb) classes because they were not part of the main responsibility of the Navigator.
 
 #### Implementing the [Commands](lib/commands/)
 Instead of having the simulator run the commands itself, or send a message to the Robot or the Navigator, I decided to create a separate class for each command which performs the steps required. This isolates the responsibility for each command within one class and will make it easier to add or change commands in future. The command objects, of course, don't know the specifics of how to turn or move, for example, as that is handled by the Navigator. But they sanitize the input and perform validation, then send a message to the Navigator to do what needs to be done.
 
 #### Implementing the [Robot](lib/robot.rb) and the [Table](lib/table.rb)
-When all is said and done, the Robot object simply contains what's specific to it: it's position and orientation. The Table object likewise has dimensions and can respond to a message asking if a given position is within those dimensions.
+When all is said and done, a Robot object simply contains what's specific to it: it's position and orientation. A Table object likewise has dimensions and can respond to a message asking if a given position is within those dimensions.
 
 
 
