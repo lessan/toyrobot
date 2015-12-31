@@ -135,14 +135,14 @@ To run all the tests in one file:
 
 ```
 $ cd ~/toyrobot
-$ bundle exec rspec ./spec/robot_simulator_spec.rb
+$ bundle exec rspec ./spec/simulator_spec.rb
 ```
 
 To run a single test case, specify the line number on which it occurs. For example, to run the test whose definition starts at line 10:
 
 ```
 $ cd ~/toyrobot
-$ bundle exec rspec ./spec/robot_simulator_spec.rb:10
+$ bundle exec rspec ./spec/simulator_spec.rb:5
 ```
 
 
