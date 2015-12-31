@@ -207,6 +207,18 @@ Here is an overview of the steps our CommandParser takes:
 - check that the Command is valid (compare against a whitelist) so we don't get hacked with someone executing an arbitrary method by including it in commands.txt
 - apply the Command to an object, in our case an instance of the Robot class
 
+#### Implementing the [Navigator](lib/navigator.rb)
+Another major decision was to put the methods dealing with moves outside the Robot class. I decided to do this because the functionality for placing, moving and turning have to do with the concept of navigation, rather than with a Robot. If we had a toy Car as well, for example, we could create a Car class which also uses the same Navigation system.
+
+I then separated specific functionality into the [DirectionMatrix](lib/direction_matrix.rb) and [Compass](lib/compass.rb) objects because they were not part of the main responsibility of the Navigator.
+
+#### Implementing the [Commands](lib/commands/)
+Instead of having the simulator run the commands itself, or send a message to the Robot or the Navigator, I decided to create a separate class for each command which performs the steps required. This isolates the responsibility for each command within one class and will make it easier to add or change commands in future. The command objects, of course, don't know the specifics of how to turn or move, for example, as that is handled by the Navigator. But they sanitize the input and perform validation, then send a message to the Navigator to do what needs to be done.
+
+#### Implementing the [Robot](lib/robot.rb) and the [Table](lib/table.rb)
+When all is said and done, the Robot object simply contains what's specific to it: it's position and orientation. The Table object likewise has dimensions and can respond to a message asking if a given position is within those dimensions.
+
+
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for your rights and limitations.
@@ -252,4 +264,4 @@ Since this is open source software, you are most welcome to make the changes you
 
 11. As the maintainer of this repository, I will need to review the changes in the PR after which I may decide to merge it into the master branch of this repository
 
-12. NOTE: by contributing changes to the code, you agree to license your contribution under the [MIT License](LICENSE.md)
+NOTE: by contributing changes to the code, you agree to license your contribution under the [MIT License](LICENSE.md)
