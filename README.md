@@ -213,6 +213,43 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 
 
 ## Contributing
+This project is a response to the exercise outlined in the [requirements](REQUIREMENTS.md). As you read through the code or work with the application you may find areas that need to be improved or bugs with the code. Please feel free to contribute by highlighting the issue or suggesting a fix. Here's how to do it:
 
+#### Suggest a change: Create an issue
+[Log an issue](/issues) with the github issue tracker for this project. All you need is a title and a comment. For bugs, please include:
+- the version of the code you were using (master at a certain date, or a particular branch)
+- the steps you took which caused the problem to occur
+- a dump of output from the console showing the issue
+- a copy of your `data/commands.txt`, if relevant
 
+For improvements to the code or documentation:
+- the path to the file(s) concerned
+- a description of the suggestion
+- include links which provide further information about the issue, if possible
 
+#### Make the change yourself
+Since this is open source software, you are most welcome to make the changes yourself and request them to be integrated into the main codebase. You could also contribute changes to an [issue](/issues) someone else reported. This is common practice among open source projects and you will find plenty of [documentation](https://guides.github.com/activities/contributing-to-open-source/) for how to do this online. Below is a summary, enough to make simple changes:
+
+1. [Fork the project on GitHub](https://help.github.com/fork-a-repo/): A fork is a copy of a repository used to propose changes to the original repository or to use it as a starting point for your own idea. Simply click the "Fork" button on the top right of the github project page and provide the details for the new repository
+
+2. [Clone your repository](https://help.github.com/articles/cloning-a-repository/): Create a copy of the repository on your local computer, which you can make changes to and synchronize with the remote repository: `git clone git@github.com:lessan/toyrobot.git`
+
+3. Run tests to ensure the application is working on your machine: `bundle exec rspec`
+
+4. Make changes to the code. Try to make changes related to one issue at a time
+
+5. Run `rubocop` to see if your changes follow the [Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide), and fix any warnings that are issued
+
+6. Run the entire test suite again to ensure your changes didn't break anything: `bundle exec rspec`
+
+7. Commit your changes to your local repository: type `git status` to see what files have been changed, `git diff` to see what was changed, then `git commit -m "A brief message"` with a message describing the changes
+
+8. Synchronize your local repository with the remote one on github: `git push` to push your local commits to the remote repository
+
+9. [Make a Pull Request](https://help.github.com/articles/using-pull-requests/): click the green "New pull request" button on your (forked) repository. This will bring up a page comparing your changes with those of the original repository. You can then add a title and comment
+
+10. Discuss the Pull Request: a Pull Request (sometimes referred to by the acronym PR) is a great place to review changes with a team of collaborators. You can add general comments or comment on a specific line of code
+
+11. As the maintainer of this repository, I will need to review the changes in the PR after which I may decide to merge it into the master branch of this repository
+
+12. NOTE: by contributing changes to the code, you agree to license your contribution under the [MIT License](LICENSE.md)
