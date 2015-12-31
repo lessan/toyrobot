@@ -11,31 +11,29 @@ describe Navigator do
   end
 
   context 'determining if an object is "placed" on a surface' do
-    let(:x) { double }
-    let(:y) { double }
-    let(:angle) { double }
+    let(:x) { 12 }
+    let(:y) { 34 }
+    let(:angle) { 90 }
     let(:navigator) { described_class.new(double(x: x, y: y, angle: angle)) }
-    before(:each) do
-      allow(TypeChecker).to receive(:integer?).and_return(true)
+    subject { navigator.placed? }
+
+    context 'with a valid x, y and angle' do
+      it { is_expected.to be(true) }
     end
 
-    it 'returns true if all type checks pass' do
-      expect(navigator.placed?).to be(true)
+    context 'with an invalid x' do
+      let (:x) { 'foo' }
+      it { is_expected.to be(false) }
     end
 
-    it 'checks the type of x is an integer and returns false if it isnt' do
-      expect(TypeChecker).to receive(:integer?).with(x).and_return(false)
-      expect(navigator.placed?).to be(false)
+    context 'with an invalid y' do
+      let (:y) { 'foo' }
+      it { is_expected.to be(false) }
     end
 
-    it 'checks the type of y is an integer and returns false if it isnt' do
-      expect(TypeChecker).to receive(:integer?).with(y).and_return(false)
-      expect(navigator.placed?).to be(false)
-    end
-
-    it 'checks the angle of x is an integer and returns false if it isnt' do
-      expect(TypeChecker).to receive(:integer?).with(angle).and_return(false)
-      expect(navigator.placed?).to be(false)
+    context 'with an invalid angle' do
+      let (:angle) { 'foo' }
+      it { is_expected.to be(false) }
     end
   end
 
