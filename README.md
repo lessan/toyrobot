@@ -216,7 +216,7 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 This project is a response to the exercise outlined in the [requirements](REQUIREMENTS.md). As you read through the code or work with the application you may find areas that need to be improved or bugs with the code. Please feel free to contribute by highlighting the issue or suggesting a fix. Here's how to do it:
 
 #### Suggest a change: Create an issue
-[Log an issue](/issues) with the github issue tracker for this project. All you need is a title and a comment. For bugs, please include:
+[Log an issue](https://github.com/lessan/toyrobot/issues) with the github issue tracker for this project. First check existing issues to ensure one doesn't already exist, then create a new issue. All you need is a title and a comment. For bugs, please include:
 - the version of the code you were using (master at a certain date, or a particular branch)
 - the steps you took which caused the problem to occur
 - a dump of output from the console showing the issue
@@ -228,7 +228,7 @@ For improvements to the code or documentation:
 - include links which provide further information about the issue, if possible
 
 #### Make the change yourself
-Since this is open source software, you are most welcome to make the changes yourself and request them to be integrated into the main codebase. You could also contribute changes to an [issue](/issues) someone else reported. This is common practice among open source projects and you will find plenty of [documentation](https://guides.github.com/activities/contributing-to-open-source/) for how to do this online. Below is a summary, enough to make simple changes:
+Since this is open source software, you are most welcome to make the changes yourself and request them to be integrated into the main codebase. You could also contribute changes to an [issue](https://github.com/lessan/toyrobot/issues) someone else reported. This is common practice among open source projects and you will find plenty of [documentation](https://guides.github.com/activities/contributing-to-open-source/) for how to do this online. Below is a summary, enough to make simple changes:
 
 1. [Fork the project on GitHub](https://help.github.com/fork-a-repo/): A fork is a copy of a repository used to propose changes to the original repository or to use it as a starting point for your own idea. Simply click the "Fork" button on the top right of the github project page and provide the details for the new repository
 
