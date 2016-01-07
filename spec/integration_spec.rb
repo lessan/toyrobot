@@ -8,7 +8,7 @@ describe 'integration' do
       { filename: 'spec/fixtures/example_a.txt', result: /Output: 0,1,NORTH/ },
       { filename: 'spec/fixtures/example_b.txt', result: /Output: 0,0,WEST/ },
       { filename: 'spec/fixtures/example_c.txt', result: /Output: 3,3,NORTH/ },
-      { filename: 'spec/fixtures/charlie.txt',   result: /Output: 1,2,NORTH.*Output: 0,4,WEST.*Output: 2,0,EAST/m },
+      { filename: 'spec/fixtures/charlie.txt',   result: /Output: 1,2,NORTH.*Output: 0,4,WEST.*Output: 2,0,EAST/m }
     ]
   end
 

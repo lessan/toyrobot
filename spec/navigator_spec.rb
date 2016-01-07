@@ -22,17 +22,17 @@ describe Navigator do
     end
 
     context 'with an invalid x' do
-      let (:x) { 'foo' }
+      let(:x) { 'foo' }
       it { is_expected.to be(false) }
     end
 
     context 'with an invalid y' do
-      let (:y) { 'foo' }
+      let(:y) { 'foo' }
       it { is_expected.to be(false) }
     end
 
     context 'with an invalid angle' do
-      let (:angle) { 'foo' }
+      let(:angle) { 'foo' }
       it { is_expected.to be(false) }
     end
   end
