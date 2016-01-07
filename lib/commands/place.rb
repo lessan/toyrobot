@@ -2,6 +2,7 @@ require 'navigator'
 require 'table'
 
 module Commands
+  # Set an object's location and angle, if valid
   class Place
     attr_reader :x, :y, :direction
 

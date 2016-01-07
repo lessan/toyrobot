@@ -1,3 +1,4 @@
+# Has dimensions and can determine if a location is within those dimensions
 class Table
   X_DIMENSIONS = 0..4
   Y_DIMENSIONS = 0..4

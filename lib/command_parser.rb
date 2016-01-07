@@ -5,6 +5,8 @@ require_relative 'commands/right'
 require_relative 'commands/report'
 require_relative 'commands/invalid'
 
+# Parse a command string and return a command object
+#   corresponding to the contents of the string
 class CommandParser
   attr_reader :command_string
 

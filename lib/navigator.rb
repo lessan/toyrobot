@@ -1,6 +1,7 @@
 require 'compass'
 require 'direction_matrix'
 
+# Maps navigation commands to an object that responds to x, y and angle
 class Navigator
   attr_reader :object
 
@@ -14,7 +15,7 @@ class Navigator
 
   def placed?
     # we can assume an object is "placed" on the surface if it has
-    # a valid position and an angle set
+    #   a valid position and an angle set
     return false unless object.x.is_a?(Integer)
     return false unless object.y.is_a?(Integer)
     return false unless object.angle.is_a?(Integer)

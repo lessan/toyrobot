@@ -2,6 +2,7 @@ require 'navigator'
 require 'table'
 
 module Commands
+  # Change an object's location, if valid
   class Move
     def execute(object)
       navigator = Navigator.new(object)

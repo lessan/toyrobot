@@ -1,3 +1,4 @@
+# Read each line of a file, cleaning it up and passing it to a processor to process
 class FileProcessor
   attr_reader :filename
 

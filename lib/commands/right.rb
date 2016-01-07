@@ -1,6 +1,7 @@
 require 'navigator'
 
 module Commands
+  # Change an object's angle towards the right
   class Right
     def execute(object)
       navigator = Navigator.new(object)
