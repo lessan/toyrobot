@@ -1,7 +1,5 @@
 require 'command_parser'
 require 'robot'
-require 'table'
-require 'navigator'
 
 class Simulator
   attr_reader :robot
