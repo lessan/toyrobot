@@ -49,6 +49,8 @@ LEFT
 REPORT
 ```
 
+The simulator can also read input typed in the console by reading from Standard Input.  See the section on [Running the Simulator](#running-the-simulator) below.
+
 ### Command Reference
 
 Commands and arguments are not case sensitive - any combination of upper and lower case characters will work. For example, the following are equivalent:
@@ -109,6 +111,37 @@ PLACE 0,0,NORTH
 MOVE
 REPORT
 Output: 0,1,NORTH
+
+Simulation ended.
+```
+
+You can also run the simulator and type in your commands one line at a time. Invoke the `stdin` rake task:
+
+```
+$ cd ~/toyrobot
+$ bundle exec rake stdin
+```
+
+Then type some commands. For example:
+
+```
+Robot Simulator
+---------------
+Type one command at a time then press ENTER
+Valid commands are:
+        PLACE X,Y,DIRECTION
+        MOVE
+        LEFT
+        RIGHT
+        REPORT
+Press ENTER without any commands to exit
+
+PLACE 2,2,EAST
+MOVE
+RIGHT
+MOVE
+REPORT
+Output: 3,1,SOUTH
 
 Simulation ended.
 ```
